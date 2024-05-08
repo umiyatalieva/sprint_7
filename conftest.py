@@ -2,6 +2,10 @@ import allure
 import pytest
 
 import data
+import allure
+import pytest
+
+import data
 import samokat_api
 import helper
 from urls import Urls
@@ -11,4 +15,7 @@ from urls import Urls
 @pytest.fixture(scope='function')
 def default_booking(payload):
     samokat_response = samokat_api.SamokatApi.create_courier(data.TestDataCourier.create_courier_payload(payload))
-    return samokat_response
+
+
+    yield samokat_response
+

@@ -1,6 +1,6 @@
 import helper
 class TestDataCreateOrder:
-    CREAT_ORDER_DATA = {
+    ORDER_DATA = [{
     "firstName": "Naruto",
     "lastName": "Uchiha",
     "address": "Konoha, 142 apt.",
@@ -12,12 +12,41 @@ class TestDataCreateOrder:
     "color": [
         "BLACK"
     ]
-}
+},
+        {
+            "firstName": "Naruto",
+            "lastName": "Uchiha",
+            "address": "Konoha, 142 apt.",
+            "metroStation": 4,
+            "phone": "+7 800 355 35 35",
+            "rentTime": 5,
+            "deliveryDate": "2020-06-06",
+            "comment": "Saske, come back to Konoha",
+            "color": [
+                "BLACK","GREY"
+            ] },
+
+        {
+            "firstName": "Naruto",
+            "lastName": "Uchiha",
+            "address": "Konoha, 142 apt.",
+            "metroStation": 4,
+            "phone": "+7 800 355 35 35",
+            "rentTime": 5,
+            "deliveryDate": "2020-06-06",
+            "comment": "Saske, come back to Konoha",
+            "color": [
+                ""
+            ]}]
+
+
+
 class TestDataAuth:
     AUTH_DATA_COURIER = {
     "login": "nina",
     "password": "8523"
 }
+
 class TestDataCourier:
     def create_courier_payload(self):
         payload = {
@@ -26,6 +55,8 @@ class TestDataCourier:
             'password': helper.generate_random_string(length=10)
         }
         return payload
+
+
 class TestIdenticalCourier:
 
          BODY_INDETICAL_COURIER= {
@@ -33,6 +64,9 @@ class TestIdenticalCourier:
     "password": "8523",
     "firstName": "yuio"
 }
+
+
+
 
 
 

@@ -5,20 +5,23 @@ import data
 import helper
 from data import TestDataAuth
 from samokat_api import SamokatApi
+from conftest import default_booking
 
 class TestLoginCourier:
     @allure.title("Проверка  на корректную авторизацию курьеров ")
     @allure.description("Проверяем что курьер авторизуется приуказании всех обязательных "
                         "полей ,а так же тело ответа возвращает его ID")
     def test_login_courier(self):
-        login_courier_request = SamokatApi.auth(data.TestDataAuth.AUTH_DATA_COURIER)
-        assert login_courier_request.status_code == 200
+        login_courier_request = SamokatApi().auth(data.TestDataAuth().AUTH_DATA_COURIER)
+        assert login_courier_request.status_code == 201
+
 
     @allure.title("Проверка  система вернёт ошибку, если неправильно указать логин или пароль ")
     @allure.description("Проверяем  если неправильно указать логин запрос вернет код ошибку")
     def test_login_courier_invalid_login(self):
         login_courier_request = SamokatApi.auth("login", "dfdg")
         assert login_courier_request.status_code == 404
+
 
     @allure.title("Проверка  система вернёт ошибку, если не указать логин или пароль ")
     @allure.description("Проверяем  если не указать логин запрос вернет код ошибку")
