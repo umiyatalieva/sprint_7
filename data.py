@@ -43,9 +43,23 @@ class TestDataCreateOrder:
 
 class TestDataAuth:
     AUTH_DATA_COURIER = {
-    "login": "nina",
-    "password": "8523"
-}
+                "login": "okmn",
+                "password": "9512"
+            }
+
+    AUTH_DATA_COURIER_NOT_FAILED={
+            "login": "",
+            "password": "9512"
+        }
+    AUTH_DATA_COURIER_INVALID_LOGIN={
+            "login": "yyyy",
+            "password": "0000"
+        }
+    AUTH_DATA_COURIER_INVALID_ONE_FAILED={
+            "login": "yyyy",
+            "password": "9512"
+        }
+
 
 class TestDataCourier:
     def create_courier_payload(self):
