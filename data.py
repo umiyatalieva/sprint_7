@@ -40,7 +40,6 @@ class TestDataCreateOrder:
             ]}]
 
 
-
 class TestDataAuth:
     AUTH_DATA_COURIER = {
                 "login": "okmn",
@@ -59,17 +58,6 @@ class TestDataAuth:
             "login": "yyyy",
             "password": "9512"
         }
-
-
-class TestDataCourier:
-    def create_courier_payload(self):
-        payload = {
-            'firstName': helper.generate_random_string(length=10),
-            'login': helper.generate_random_string(length=10),
-            'password': helper.generate_random_string(length=10)
-        }
-        return payload
-
 
 class TestIdenticalCourier:
 

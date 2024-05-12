@@ -7,18 +7,17 @@ import pytest
 from data import TestDataAuth
 from data import TestDataCreateOrder
 from data import TestIdenticalCourier
-from data import TestDataCourier
 
 
 class ScooterApi:
     @allure.step("Авторизация курьера")
     def auth(self):
-        return requests.post(Urls.BASE_URL + Urls.AUTH_URL, json= data.TestDataAuth.AUTH_DATA_COURIER)
+        return requests.post(Urls.BASE_URL + Urls.AUTH_URL, json=data.TestDataAuth.AUTH_DATA_COURIER)
 
 
     @allure.step("Авторизация курьера если одного поля нет")
     def auth_one_failed(self):
-        return requests.post(Urls.BASE_URL + Urls.AUTH_URL, json= data.TestDataAuth.AUTH_DATA_COURIER_NOT_FAILED)
+        return requests.post(Urls.BASE_URL + Urls.AUTH_URL, json=data.TestDataAuth.AUTH_DATA_COURIER_NOT_FAILED)
 
 
     @allure.step("Авторизация курьера с неправильными данными")

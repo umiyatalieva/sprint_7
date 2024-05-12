@@ -5,26 +5,25 @@ import helper
 from samokat_api import ScooterApi
 import data
 from urls import Urls
-from data import TestDataCourier
-
 
 class TestCreateCourier:
     @allure.title("Проверка успешности создания курьера")
     @allure.description("Создание шаблонного курьера, проверка  корректного статуса ответа и тело ответа возвращает правильное")
     def test_success_create_courier(self):
-        created_courier_request = ScooterApi().create_courier(data.TestDataCourier().create_courier_payload())
-        assert created_courier_request.status_code == 201
+        created_courier_request = ScooterApi().create_courier(helper.create_courier_payload())
+        assert created_courier_request.status_code == 201 and created_courier_request.text == '{"ok":true}'
 
 
     @allure.title("Проверка  на ошибку при создании двух одинаковых курьеров ")
     @allure.description("Создание двух одинаковых курьеров и проверка статуса ответа")
     def test_create_two_identical_courier(self):
-        payload = data.TestDataCourier().create_courier_payload()
+        payload = helper.create_courier_payload()
         first_response = ScooterApi().create_courier(payload)
         second_response = ScooterApi().create_courier(payload)
 
         assert (second_response.status_code == 409 and
                 second_response.json()['message'] == 'Этот логин уже используется. Попробуйте другой.')
+
 
     @allure.title("Проверка  на ошибку при создании курьера, без одного обязательного поля ")
     @allure.description("Сохдание курьера без одного обязательного поля и проверка что запрос вернет  ошибку")
