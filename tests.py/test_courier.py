@@ -21,7 +21,7 @@ class TestCreateCourier:
         first_response = ScooterApi().create_courier(payload)
         second_response = ScooterApi().create_courier(payload)
 
-        assert (second_response.status_code == 409 and
+        assert (first_response.status_code == 201 and second_response.status_code == 409 and
                 second_response.json()['message'] == 'Этот логин уже используется. Попробуйте другой.')
 
 

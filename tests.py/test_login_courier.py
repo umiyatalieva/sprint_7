@@ -14,7 +14,7 @@ class TestLoginCourier:
     def test_login_courier(self):
         response = ScooterApi().auth()
         assert response.status_code == 200 and response.json()["id"] is not None
-        print(response.text)
+
 
 
     @allure.title("Проверка если какого-то поля нет, запрос возвращает ошибку ")
